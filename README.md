@@ -1,16 +1,38 @@
-# React + Vite
+# Quantum Visualizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Interactive quantum circuit and state visualization app built with React + Vite.
 
-Currently, two official plugins are available:
+## Development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+npm install
+npm run dev
+```
 
-## React Compiler
+## Build
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm run build
+npm run preview
+```
 
-## Expanding the ESLint configuration
+## Deploy To GitHub Pages
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+This repo includes an automated Pages workflow at `.github/workflows/deploy-pages.yml`.
+
+What it does:
+- Runs on pushes to `main` (and manual trigger).
+- Builds the app with the correct Vite `base` path.
+- Publishes `dist/` to GitHub Pages.
+
+One-time GitHub setup:
+1. Push this repo to GitHub.
+2. In your repo, go to `Settings` > `Pages`.
+3. Under `Build and deployment`, set `Source` to `GitHub Actions`.
+4. Ensure your default branch is `main` (or update the workflow trigger branch).
+5. Push to `main` and wait for the `Deploy to GitHub Pages` workflow to finish.
+
+Notes:
+- For project pages (`github.com/<user>/<repo>`), deployment path is `/<repo>/`.
+- For user/org pages repos named `<user>.github.io`, deployment path is `/`.
+- The workflow auto-detects this and sets `VITE_BASE_PATH` for the build.

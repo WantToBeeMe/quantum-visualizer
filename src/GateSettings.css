@@ -1,0 +1,243 @@
+.gate-settings {
+    background: var(--qbits-bg-elev);
+    border-radius: 10px;
+    padding: 12px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.gate-settings.empty {
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+}
+
+.placeholder {
+    color: var(--qbits-text-dim);
+    font-size: 11px;
+    font-style: italic;
+}
+
+.settings-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.gate-badge {
+    width: 26px;
+    height: 26px;
+    border: 2px solid var(--gate-color);
+    background: var(--qbits-bg);
+    color: var(--gate-color);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 11px;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+.gate-badge.barrier {
+    border: 2px dashed var(--neutral-300);
+    background: var(--qbits-bg);
+    color: var(--neutral-300);
+}
+
+.gate-badge.control-node {
+    background: var(--qbits-control);
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+}
+
+.gate-name {
+    color: var(--qbits-text-dim);
+    font-size: 11px;
+    flex: 1;
+}
+
+.settings-description {
+    color: var(--qbits-text-dim);
+    font-size: 11px;
+}
+
+.param-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.param-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    color: var(--qbits-text-dim);
+}
+
+.slider-toggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    font-size: 10px;
+}
+
+.slider-toggle input {
+    accent-color: var(--qbits-accent);
+}
+
+.param-grid {
+    display: flex;
+    gap: 6px;
+}
+
+.param-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+}
+
+.param-row label {
+    color: var(--qbits-text-dim);
+    font-size: 10px;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+.param-row input {
+    background: var(--qbits-bg);
+    border: none;
+    border-radius: 4px;
+    padding: 4px 6px;
+    color: var(--qbits-text);
+    font-size: 10px;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    width: 100%;
+}
+
+.param-row input:focus {
+    outline: none;
+    border-color: var(--qbits-accent);
+}
+
+.param-sliders {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.slider-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.slider-row label {
+    color: var(--qbits-text-dim);
+    font-size: 10px;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    width: 10px;
+}
+
+.slider-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--qbits-accent);
+    height: 4px;
+}
+
+.slider-value {
+    color: var(--qbits-text);
+    font-size: 10px;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    min-width: 32px;
+    text-align: right;
+}
+
+.control-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.control-toggle {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    color: var(--qbits-text);
+    font-size: 11px;
+}
+
+.control-toggle input {
+    accent-color: var(--qbits-control);
+}
+
+.control-select {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+.control-qubit-btn {
+    background: var(--neutral-600);
+    border: none;
+    color: var(--qbits-text-dim);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.control-qubit-btn:hover {
+    background: var(--qbits-bg-elev-3);
+    color: var(--qbits-text);
+}
+
+.control-qubit-btn.active {
+    background: var(--qbits-control);
+    color: var(--black);
+    font-weight: 600;
+}
+
+.settings-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.action-btn {
+    flex: 1;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.action-btn.remove {
+    background: var(--danger-600);
+    color: var(--danger-50);
+    border: none;
+}
+
+.action-btn.remove:hover {
+    background: var(--danger-500);
+}
+
+.action-btn.decompose {
+    background: var(--warning-400);
+    color: var(--black);
+    border: none;
+}
+
+.action-btn.decompose:hover {
+    background: var(--warning-300);
+}

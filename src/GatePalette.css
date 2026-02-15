@@ -1,0 +1,94 @@
+.gate-palette {
+    background: var(--qbits-bg-elev);
+    border-radius: 10px;
+    padding: 12px;
+    border: none;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.palette-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.palette-title {
+    margin: 0;
+    color: var(--qbits-text);
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.gates-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.gate-button {
+    width: 32px;
+    height: 32px;
+    border: 2px solid var(--gate-color);
+    background: var(--qbits-bg);
+    color: var(--gate-color);
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: grab;
+    transition: all 0.15s ease;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.gate-button:hover {
+    background: var(--qbits-bg-elev-2);
+    transform: scale(1.06);
+}
+
+.gate-button:active {
+    cursor: grabbing;
+    transform: scale(0.95);
+}
+
+.barrier-section {
+    border-left: none;
+    padding-left: 12px;
+}
+
+.barrier-button {
+    width: 32px;
+    height: 44px;
+    background: var(--qbits-bg);
+    border: 2px dashed var(--neutral-300);
+    border-radius: 5px;
+    cursor: grab;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    color: var(--neutral-300);
+}
+
+.barrier-button:hover {
+    background: var(--qbits-bg-elev-2);
+    border-color: var(--neutral-200);
+    color: var(--neutral-200);
+    transform: scale(1.06);
+}
+
+.barrier-button:hover svg line {
+    stroke: currentColor;
+}
+
+.barrier-button:active {
+    cursor: grabbing;
+    transform: scale(0.95);
+}

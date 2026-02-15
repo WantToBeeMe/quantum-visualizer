@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=JetBrains+Mono:wght@400;600&family=DM+Sans:wght@400;500;700&display=swap');
+
+.qbits-landing {
+    position: relative;
+    min-height: 100vh;
+    background: var(--qbits-bg);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qbits-landing-vectors {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.qbits-landing-noise {
+    display: none;
+}
+
+.qbits-landing-hero {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.qbits-brand {
+    line-height: 1;
+    margin: 0;
+}
+
+.qbits-brand-q {
+    font-family: 'Lobster', cursive;
+    color: var(--qbits-accent);
+    font-size: clamp(4.4rem, 10vw, 8rem);
+    margin-right: 0.08rem;
+}
+
+.qbits-brand-bits {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--qbits-text);
+    font-size: clamp(3rem, 8vw, 5.8rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.qbits-landing-subtitle {
+    margin-top: 0.8rem;
+    margin-bottom: 1.8rem;
+    color: var(--qbits-text-dim);
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 0.74rem;
+}
+
+.qbits-start-button {
+    border: none;
+    background: var(--qbits-accent);
+    color: var(--black);
+    border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.76rem;
+    padding: 0.9rem 2.1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.qbits-start-button:hover {
+    background: var(--primary-400);
+    transform: translateY(-1px);
+}

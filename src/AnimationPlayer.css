@@ -1,0 +1,109 @@
+.animation-player {
+    background: var(--qbits-bg-elev);
+    border-radius: 8px;
+    padding: 8px 10px;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.player-controls {
+    display: flex;
+    gap: 3px;
+}
+
+.player-btn {
+    background: transparent;
+    border: none;
+    color: var(--qbits-text-dim);
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+}
+
+.player-btn.step {
+    width: 24px;
+    height: 24px;
+}
+
+.player-btn.play {
+    width: 30px;
+    height: 28px;
+    background: var(--qbits-accent);
+    color: var(--black);
+}
+
+.player-btn:hover:not(:disabled) {
+    background: var(--qbits-bg-elev-2);
+    color: var(--qbits-text);
+}
+
+.player-btn.play:hover {
+    background: var(--qbits-accent-soft);
+    color: var(--black);
+}
+
+.player-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.player-progress {
+    flex: 1;
+    height: 6px;
+    background: var(--qbits-bg-elev-2);
+    border-radius: 3px;
+    display: flex;
+    gap: 2px;
+    overflow: visible;
+}
+
+.segment {
+    height: 100%;
+    background: var(--neutral-700);
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s ease;
+}
+
+.segment.completed {
+    background: var(--qbits-accent);
+}
+
+.segment.animating {
+    background: var(--qbits-accent);
+}
+
+.segment.animating::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: var(--qbits-accent);
+    animation: fillSegment 1s linear forwards;
+}
+
+@keyframes fillSegment {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+.frame-label {
+    font-size: 10px;
+    color: var(--qbits-text-dim);
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    min-width: 28px;
+    text-align: right;
+}

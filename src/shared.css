@@ -1,0 +1,144 @@
+:root {
+    /* Neutral Scale */
+    --neutral-50: #F6F7F9;
+    --neutral-100: #EDEDF1;
+    --neutral-200: #D7D9E0;
+    --neutral-300: #B4B8C5;
+    --neutral-400: #8B91A5;
+    --neutral-500: #6C7389;
+    --neutral-600: #575D72;
+    --neutral-700: #474B5D;
+    --neutral-800: #3E424E;
+    --neutral-900: #363944;
+    --neutral-950: #24252D;
+    --black: #090A0C;
+
+    /* Danger Scale */
+    --danger-50: #FFF1F4;
+    --danger-100: #FFE0E6;
+    --danger-200: #FFC5CF;
+    --danger-300: #FF9DAF;
+    --danger-400: #FF6581;
+    --danger-500: #FE2048;
+    --danger-600: #EC163D;
+    --danger-700: #C70E2F;
+    --danger-800: #A4102B;
+    --danger-900: #881429;
+    --danger-950: #4A0511;
+
+    /* Warning Scale */
+    --warning-50: #FFFEE7;
+    --warning-100: #FFFDC1;
+    --warning-200: #FFF686;
+    --warning-300: #FFE941;
+    --warning-400: #FFD80D;
+    --warning-500: #FFC800;
+    --warning-600: #D19200;
+    --warning-700: #A66802;
+    --warning-800: #89510A;
+    --warning-900: #74420F;
+    --warning-950: #442204;
+
+    /* Primary Scale */
+    --primary-50: #EEFFFA;
+    --primary-100: #C7FFF0;
+    --primary-200: #8EFFE2;
+    --primary-300: #34EAC5;
+    --primary-400: #01CBA5;
+    --primary-500: #00A488;
+    --primary-600: #00A488;
+    --primary-700: #03826E;
+    --primary-800: #08675A;
+    --primary-900: #0C554A;
+    --primary-950: #00342F;
+
+    --black-ish: #090A0C;
+
+    /* App aliases */
+    --qbits-bg: var(--neutral-950);
+    --qbits-bg-elev: var(--neutral-900);
+    --qbits-bg-elev-2: var(--neutral-800);
+    --qbits-bg-elev-3: var(--neutral-700);
+    --qbits-border: transparent;
+    --qbits-text: var(--neutral-100);
+    --qbits-text-dim: var(--neutral-400);
+    --qbits-accent: var(--primary-300);
+    --qbits-accent-soft: var(--primary-200);
+    --qbits-gate-green: var(--primary-300);
+    --qbits-bright-green: var(--primary-200);
+    --qbits-gate-purple: #B08CFF;
+    --qbits-gate-blue: #4DBAF5;
+    --qbits-blue: var(--neutral-300);
+    --qbits-purple: var(--neutral-200);
+    --qbits-red: var(--danger-500);
+    --qbits-red-soft: var(--danger-300);
+    --qbits-yellow: var(--warning-400);
+    --qbits-warning: var(--warning-500);
+    --qbits-control: var(--warning-500);
+    --qbits-track: var(--neutral-700);
+
+    --ui-scrollbar-size: 5px;
+    --ui-scrollbar-track: var(--neutral-900);
+    --ui-scrollbar-thumb: var(--neutral-700);
+    --ui-scrollbar-thumb-hover: var(--neutral-600);
+}
+
+.panel-box {
+    background: var(--qbits-bg-elev);
+    border-radius: 10px;
+    padding: 12px;
+    border: none;
+}
+
+.panel-title {
+    margin: 0 0 10px 0;
+    color: var(--qbits-text);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.styled-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--ui-scrollbar-thumb) var(--ui-scrollbar-track);
+}
+
+.styled-scrollbar::-webkit-scrollbar {
+    width: var(--ui-scrollbar-size);
+    height: var(--ui-scrollbar-size);
+}
+
+.styled-scrollbar::-webkit-scrollbar-track {
+    background: var(--ui-scrollbar-track);
+    border-radius: 3px;
+}
+
+.styled-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--ui-scrollbar-thumb);
+    border-radius: 3px;
+}
+
+.styled-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--ui-scrollbar-thumb-hover);
+}
+
+.mode-toggle {
+    background: var(--neutral-900);
+    border: 1px solid var(--neutral-300);
+    color: var(--qbits-text);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.mode-toggle:hover {
+    background: var(--neutral-800);
+    color: var(--qbits-gate-green);
+    border-color: var(--qbits-gate-green);
+}

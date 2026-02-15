@@ -1,0 +1,344 @@
+.circuit-builder {
+    background: var(--qbits-bg-elev);
+    border-radius: 10px;
+    padding: 12px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.circuit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.circuit-title {
+    margin: 0;
+    color: var(--qbits-text);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.circuit-board {
+    overflow: visible;
+}
+
+.circuit-grid {
+    display: flex;
+    gap: 0;
+}
+
+.qubit-labels {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex-shrink: 0;
+    padding-right: 6px;
+}
+
+.qubit-row-label {
+    height: 36px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.qubit-label {
+    background: none;
+    border: none;
+    color: var(--qbits-gate-green);
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 11px;
+    padding: 4px 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.qubit-label:hover {
+    background: var(--qbits-bg-elev-2);
+}
+
+.qubit-btn {
+    background: none;
+    border: none;
+    font-size: 14px;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.15s ease;
+    opacity: 0.5;
+    color: var(--qbits-text-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qubit-btn:hover:not(:disabled) {
+    opacity: 1;
+    background: var(--qbits-bg-elev-2);
+    border-color: var(--qbits-gate-green);
+    color: var(--qbits-gate-green);
+}
+
+.qubit-btn:disabled {
+    opacity: 0.15;
+    cursor: not-allowed;
+}
+
+.qubit-btn.eye.hidden {
+    opacity: 0.25;
+}
+
+.qubit-btn.trash:hover:not(:disabled) {
+    color: var(--danger-100);
+    background: var(--danger-800);
+    border-color: var(--danger-600);
+}
+
+.circuit-slots-wrapper {
+    flex: 1;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.circuit-slots {
+    position: relative;
+    min-width: calc(var(--slot-count) * 38px);
+    height: var(--total-height);
+    padding: 0 4px;
+}
+
+.qubit-track {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(var(--row) * 42px + 18px);
+    height: 2px;
+    background: var(--qbits-track);
+    pointer-events: none;
+}
+
+.control-lines-svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.control-line {
+    background: var(--qbits-control);
+}
+
+.circuit-gate {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: calc(var(--slot) * 38px + 3px);
+    top: calc(var(--row) * 42px + 3px);
+    background: var(--qbits-bg);
+    border: 2px solid var(--gate-color);
+    color: var(--gate-color);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 11px;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    cursor: grab;
+    transition: all 0.1s ease;
+    z-index: 10;
+}
+
+.circuit-gate:hover {
+    background: var(--qbits-bg-elev-2);
+    z-index: 20;
+}
+
+.circuit-gate.selected {
+    background: var(--gate-color);
+    color: var(--black);
+    z-index: 25;
+}
+
+.circuit-cell {
+    overflow: visible;
+}
+
+.qubit-track.animating {
+    background: var(--qbits-accent);
+}
+
+.circuit-gate.dragging {
+    opacity: 0.4;
+    cursor: grabbing;
+}
+
+.circuit-gate.disabled {
+    background: var(--neutral-900) !important;
+    border-color: var(--neutral-700) !important;
+    color: var(--neutral-500) !important;
+    pointer-events: none;
+    opacity: 0.45;
+}
+
+.control-indicator {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--qbits-control);
+    color: var(--black);
+    font-size: 10px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.circuit-gate.control-node {
+    background: transparent !important;
+    border: none !important;
+    color: transparent !important;
+    cursor: grab;
+    pointer-events: auto;
+}
+
+.circuit-gate.control-node:hover,
+.circuit-gate.control-node.selected,
+.circuit-gate.control-node.paired-selected {
+    background: transparent !important;
+}
+
+.circuit-gate.control-node .control-indicator {
+    display: none;
+}
+
+.circuit-gate.control-node::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--qbits-bg);
+    border: 2.5px solid var(--qbits-control);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.circuit-gate.control-node.selected::after,
+.circuit-gate.control-node.paired-selected::after {
+    background: var(--qbits-control);
+}
+
+.drop-highlight {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    left: calc(var(--slot) * 38px + 2px);
+    top: calc(var(--row) * 42px + 2px);
+    border: none;
+    background: var(--qbits-bg-elev-2);
+    border-radius: 8px;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.insert-indicator {
+    position: absolute;
+    width: 4px;
+    height: 34px;
+    top: calc(var(--row) * 42px + 2px);
+    background: var(--qbits-accent);
+    border-radius: 2px;
+    pointer-events: none;
+    z-index: 20;
+}
+
+.insert-indicator.left {
+    left: calc(var(--slot) * 38px - 2px);
+}
+
+.insert-indicator.right {
+    left: calc(var(--slot) * 38px + 36px);
+}
+
+.barrier-line {
+    position: absolute;
+    width: 4px;
+    left: calc(var(--slot) * 38px - 2px);
+    top: 0;
+    height: var(--total-height);
+    background: repeating-linear-gradient(to bottom,
+            var(--neutral-300) 0px,
+            var(--neutral-300) 4px,
+            transparent 4px,
+            transparent 8px);
+    border-radius: 2px;
+    cursor: pointer;
+    z-index: 8;
+    transition: all 0.15s ease;
+}
+
+.barrier-line:hover {
+    background: repeating-linear-gradient(to bottom,
+            var(--neutral-200) 0px,
+            var(--neutral-200) 4px,
+            transparent 4px,
+            transparent 8px);
+}
+
+.barrier-line.selected {
+    background: repeating-linear-gradient(to bottom,
+            var(--neutral-100) 0px,
+            var(--neutral-100) 4px,
+            transparent 4px,
+            transparent 8px);
+}
+
+.barrier-line.highlighted {
+    background: repeating-linear-gradient(to bottom,
+            var(--qbits-accent) 0px,
+            var(--qbits-accent) 4px,
+            transparent 4px,
+            transparent 8px);
+}
+
+.barrier-indicator {
+    position: absolute;
+    width: 6px;
+    left: calc(var(--slot) * 38px - 3px);
+    top: 0;
+    height: var(--total-height);
+    background: var(--neutral-400);
+    border-radius: 3px;
+    pointer-events: none;
+    z-index: 20;
+}
+
+.add-qubit-button {
+    background: var(--qbits-bg-elev-3);
+    border: none;
+    color: var(--neutral-100);
+    padding: 7px 12px;
+    border-radius: 5px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.add-qubit-button:hover {
+    background: var(--neutral-600);
+    color: var(--neutral-50);
+}

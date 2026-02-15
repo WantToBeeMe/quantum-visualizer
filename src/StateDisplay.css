@@ -1,0 +1,123 @@
+.state-display {
+    background: var(--qbits-bg-elev);
+    border-radius: 10px;
+    padding: 12px;
+    border: none;
+}
+
+.state-display-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.state-display h4 {
+    margin: 0;
+    color: var(--qbits-text);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.collapse-btn {
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    color: var(--qbits-text-dim);
+    cursor: pointer;
+    padding: 2px 6px;
+    font-size: 10px;
+    transition: all 0.2s;
+}
+
+.collapse-btn:hover {
+    background: var(--qbits-bg-elev-2);
+    color: var(--qbits-text);
+}
+
+.state-equations {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.qubit-state-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 13px;
+}
+
+.qubit-label {
+    color: var(--qbits-gate-green);
+    font-weight: 600;
+    min-width: 30px;
+    padding-top: 2px;
+}
+
+.branch-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.branch-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.branch-probability {
+    color: var(--qbits-purple);
+    font-size: 11px;
+    font-weight: 600;
+    min-width: 32px;
+    text-align: right;
+}
+
+.state-equation {
+    color: var(--qbits-text);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.coefficient {
+    color: var(--qbits-accent);
+}
+
+.ket {
+    color: var(--qbits-yellow);
+    font-weight: 500;
+}
+
+.operator {
+    color: var(--qbits-text-dim);
+    margin: 0 2px;
+}
+
+.phase-indicator {
+    display: flex;
+    gap: 6px;
+    margin-left: 8px;
+    font-size: 10px;
+}
+
+.lambda-phase {
+    color: var(--qbits-blue);
+    background: var(--neutral-900);
+    padding: 1px 4px;
+    border-radius: 3px;
+    border: none;
+}
+
+.phi-phase {
+    color: var(--qbits-purple);
+    background: var(--neutral-900);
+    padding: 1px 4px;
+    border-radius: 3px;
+    border: none;
+}
